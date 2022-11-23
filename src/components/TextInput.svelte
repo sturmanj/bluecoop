@@ -1,6 +1,6 @@
 <script lang="ts">
     export let prompt: string
-    export let label: string
+    export const label: string = "text"
 </script>
 
 <main>

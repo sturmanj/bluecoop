@@ -67,22 +67,6 @@
                     "label": "bunnyLocs"
                 },
                 {
-                    "type": "MultiChoice",
-                    "prompt": "Which areas did the robots place tubes in?",
-                    "options": [
-                        {
-                            "value": "upper"
-                        },
-                        {
-                            "value": "inner"
-                        },
-                        {
-                            "value": "outer"
-                        }
-                    ],
-                    "label": "tubeLocs"
-                },
-                {
                     "type": "DefenseToggle",
                     "options": [
                         {

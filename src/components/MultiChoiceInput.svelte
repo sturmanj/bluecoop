@@ -2,7 +2,7 @@
 	import type { option } from "../types";
 
 	export let prompt: string;
-	export let label: string;
+	export const label: string = "multi";
 	export let options: option[];
 </script>
 

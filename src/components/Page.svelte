@@ -1,6 +1,6 @@
 <script lang="ts">
     import SuperComponent from "./SuperComponent.svelte";
-	import type { generalComponent } from "./types";
+	import type { generalComponent } from "../types";
 
     export let title: string;
     export let components: generalComponent[];

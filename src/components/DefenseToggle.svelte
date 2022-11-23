@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { option } from "../types";
 
-	export let label: string;
+	export const label: string = "defense";
 	export let options: option[];
 </script>
 
