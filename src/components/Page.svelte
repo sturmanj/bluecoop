@@ -15,6 +15,8 @@
 
 <style>
     main {
-        padding-bottom: 30px;
+        widows: 100vw;
+        height: 100vw;
+        border-color: tomato;
     }
 </style>

@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>{status}</title>
+</svelte:head>
+
 <script lang="ts">
 	export let status: number;
 	export let error: Error;
@@ -26,10 +30,6 @@
 		}
 	}
 </style>
-
-<svelte:head>
-	<title>{status}</title>
-</svelte:head>
 
 <h1>{status}</h1>
 

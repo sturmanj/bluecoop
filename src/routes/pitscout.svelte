@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Pit Scouting</title>
+</svelte:head>
+
 <script></script>
 
 <main>

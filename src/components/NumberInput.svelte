@@ -10,7 +10,6 @@
 
     function inc(): void {
         if (data[label] < max) data[label] += 1;
-        console.log(data)
     }
 
     function dec(): void {
