@@ -8,7 +8,7 @@ export type page = {
 }
 
 export type option = {
-    value: string
+    value: string,
 }
 
 export type component = {

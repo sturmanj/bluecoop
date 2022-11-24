@@ -1,11 +1,15 @@
 <script lang="ts">
+    import { data } from "../stores";
+
     export let prompt: string
-    export const label: string = "text"
+    export let label: string
+
+    data[label] = ""
 </script>
 
 <main>
     <p>{prompt}</p>
-    <textarea></textarea>
+    <textarea bind:value={data[label]}></textarea>
 </main>
 
 <style>

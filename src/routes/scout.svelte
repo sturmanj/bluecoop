@@ -97,7 +97,7 @@
 										value: "removed outer tubes",
 									},
 								],
-								label: "tubeLocs",
+								label: "defense",
 							},
 							{
 								type: "Text",
