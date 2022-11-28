@@ -3,6 +3,7 @@
 	import Page from "../components/Page.svelte";
 	import Siema from "siema";
 	import { onMount } from "svelte";
+	import Submit from "../components/Submit.svelte";
 
 	let pages2: page[];
 
@@ -143,6 +144,7 @@
 			{#each pages2 as p}
 				<Page title={p.title} components={p.components} />
 			{/each}
+			<Submit />
 		</div>
 	{/if}
 </main>

@@ -17,6 +17,5 @@
     main {
         widows: 100vw;
         height: 100vw;
-        border-color: tomato;
     }
 </style>

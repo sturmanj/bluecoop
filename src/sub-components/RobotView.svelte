@@ -1,7 +1,12 @@
 <script lang="ts">
+	import { data } from "../stores";
+
+
     let robotId: string;
 
     robotId = (Math.random() * 1E4).toFixed().toString()
+
+    data["robotId"] = robotId.toString();
 </script>
 
 <main>

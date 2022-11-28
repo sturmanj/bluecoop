@@ -1,9 +1,9 @@
 <script lang="ts">
-	import DefenseToggle from "./DefenseToggle.svelte";
-    import MultiChoiceInput from "./MultiChoiceInput.svelte";
-    import NumberInput from "./NumberInput.svelte";
-    import RobotView from "./RobotView.svelte";
-    import TextInput from "./TextInput.svelte";
+	import DefenseToggle from "../sub-components/DefenseToggle.svelte";
+    import MultiChoiceInput from "../sub-components/MultiChoiceInput.svelte";
+    import NumberInput from "../sub-components/NumberInput.svelte";
+    import RobotView from "../sub-components/RobotView.svelte";
+    import TextInput from "../sub-components/TextInput.svelte";
 
     import type { generalComponent } from "../types";
 
