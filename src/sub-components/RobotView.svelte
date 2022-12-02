@@ -4,7 +4,8 @@
 
     let robotId: string;
 
-    robotId = (Math.random() * 1E4).toFixed().toString()
+    // robotId = (Math.random() * 1E4).toFixed().toString()
+    robotId = "6465"
 
     data["robotId"] = robotId.toString();
 </script>

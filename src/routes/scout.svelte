@@ -27,7 +27,7 @@
 								type: "Number",
 								prompt: "How many unique totes did the robot place tubes in?",
 								min: 0,
-								max: 8,
+								max: 12,
 								label: "hybridTotes",
 							},
 						],
