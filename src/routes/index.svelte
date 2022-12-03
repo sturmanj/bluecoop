@@ -2,15 +2,32 @@
 	<title>Main Page</title>
 </svelte:head>
 
+<script lang="ts">
+	import { goto } from "@sapper/app";
+
+	function getLayout() {
+		fetch("/api/layout", {
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+		})
+			.then((res) => res.json())
+			.then((layout) => localStorage.setItem("layout", JSON.stringify(layout)))
+	}
+</script>
+
 <main>
 	<h1>BlueCoop</h1>
 
 	<p>
-		<a class="btn" href="/scout">Scout</a>
-		<a class="btn" href="/pit">Pit Scout</a>
-		<a class="btn" href="/foul">Foul</a>
+		<button on:click={() => goto("/scout")}>Scout</button>
+		<button on:click={() => goto("/pit")}>Pit Scout</button>
+		<button on:click={() => goto("/foul")}>Foul</button>
+		<button on:click={getLayout}>Refresh Layout</button>
 	</p>
 </main>
 
-<style>	
+<style>
 </style>

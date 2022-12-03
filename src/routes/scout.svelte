@@ -5,116 +5,11 @@
 	import { onMount } from "svelte";
 	import Submit from "../components/Submit.svelte";
 
-	let pages2: page[];
+	let pages: page[];
 
-	if (typeof window !== "undefined") {
-		localStorage.setItem(
-			"layout",
-			JSON.stringify({
-				pages: [
-					{
-						title: "Pregame",
-						components: [
-							{
-								type: "RobotView",
-							},
-						],
-					},
-					{
-						title: "Hybrid",
-						components: [
-							{
-								type: "Number",
-								prompt: "How many unique totes did the robot place tubes in?",
-								min: 0,
-								max: 12,
-								label: "hybridTotes",
-							},
-						],
-					},
-					{
-						title: "Teleop",
-						components: [
-							{
-								type: "Number",
-								prompt: "How many tubes did the robot place in the upper totes?",
-								min: 0,
-								max: 40,
-								label: "upperTubes",
-							},
-							{
-								type: "Number",
-								prompt: "How many tubes did the robot place in the inner area?",
-								min: 0,
-								max: 40,
-								label: "innerTubes",
-							},
-							{
-								type: "Number",
-								prompt: "How many tubes did the robot place in the outer area?",
-								min: 0,
-								max: 40,
-								label: "outerTubes",
-							},
-						],
-					},
-					{
-						title: "Endgame",
-						components: [
-							{
-								type: "MultiChoice",
-								prompt: "Which areas did the robot place bunnies in?",
-								options: [
-									{
-										value: "upper",
-									},
-									{
-										value: "inner",
-									},
-									{
-										value: "outer",
-									},
-								],
-								label: "bunnyLocs",
-							},
-							{
-								type: "MultiChoice",
-								prompt: "What strategies did the robot use to defend?",
-								options: [
-									{
-										value: "pushed robots",
-									},
-									{
-										value: "stole bunnies",
-									},
-									{
-										value: "hogged tubes",
-									},
-									{
-										value: "removed upper tubes",
-									},
-									{
-										value: "removed inner tubes",
-									},
-									{
-										value: "removed outer tubes",
-									},
-								],
-								label: "defense",
-							},
-							{
-								type: "Text",
-								prompt: "Any other notes?",
-								label: "notes",
-							},
-						],
-					},
-				],
-			})
-		);
-
+	if (typeof window != "undefined") {
 		const layout: layout = JSON.parse(localStorage.getItem("layout"));
-		pages2 = layout.pages;
+		pages = layout.pages;
 
 		onMount(() => {
 			new Siema({
@@ -142,7 +37,7 @@
 <main>
 	{#if typeof window !== "undefined"}
 		<div class="carousel">
-			{#each pages2 as p}
+			{#each pages as p}
 				<Page title={p.title} components={p.components} />
 			{/each}
 			<Submit />
