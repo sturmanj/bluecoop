@@ -32,10 +32,6 @@ export type multiChoice = input & {
     options: option[]
 }
 
-export type defenseToggle = input & {
-    options: option[]
-}
-
 export type robotView = component
 
-export type generalComponent = numberInput & textInput & multiChoice & defenseToggle
+export type generalComponent = numberInput & textInput & multiChoice

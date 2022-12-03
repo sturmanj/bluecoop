@@ -1,5 +1,4 @@
 <script lang="ts">
-	import DefenseToggle from "../sub-components/DefenseToggle.svelte";
     import MultiChoiceInput from "../sub-components/MultiChoiceInput.svelte";
     import NumberInput from "../sub-components/NumberInput.svelte";
     import RobotView from "../sub-components/RobotView.svelte";
@@ -19,8 +18,6 @@
         <RobotView/>
     {:else if comp.type == "Text"}
         <TextInput prompt={comp.prompt} label={comp.label}/>
-    {:else if comp.type == "DefenseToggle"}
-        <DefenseToggle label={comp.label} options={comp.options}/>
     {/if}
 </main>
 

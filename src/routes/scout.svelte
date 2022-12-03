@@ -63,7 +63,7 @@
 						components: [
 							{
 								type: "MultiChoice",
-								prompt: "Which areas did the robots place bunnies in?",
+								prompt: "Which areas did the robot place bunnies in?",
 								options: [
 									{
 										value: "upper",
@@ -78,7 +78,8 @@
 								label: "bunnyLocs",
 							},
 							{
-								type: "DefenseToggle",
+								type: "MultiChoice",
+								prompt: "What strategies did the robot use to defend?",
 								options: [
 									{
 										value: "pushed robots",

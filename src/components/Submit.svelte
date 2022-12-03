@@ -2,13 +2,15 @@
 	import { data } from "../stores";
 
 	function submit() {
+		console.log(JSON.stringify(compileData()))
+
 		fetch("/api/submit", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ data: JSON.stringify(compileData()) }),
+			body: JSON.stringify({ data: compileData() }),
 		});
 	}
 
