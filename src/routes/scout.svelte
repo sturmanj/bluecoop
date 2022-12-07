@@ -4,6 +4,7 @@
 	import Siema from "siema";
 	import { onMount } from "svelte";
 	import Submit from "../components/Submit.svelte";
+	import { state } from "../stores";
 
 	let pages: page[];
 
@@ -35,7 +36,7 @@
 </svelte:head>
 
 <main>
-	{#if typeof window !== "undefined"}
+	{#if typeof window != "undefined"}
 		<div class="carousel">
 			{#each pages as p}
 				<Page title={p.title} components={p.components} />

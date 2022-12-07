@@ -1,3 +1,22 @@
+import { type } from "os"
+
+//actual input types:
+export type numberInput = input & {
+    min: number,
+    max: number,
+}
+
+export type textInput = input
+
+export type multiChoice = input & {
+    options: option[]
+}
+
+export type robotView = component
+
+export type generalComponent = numberInput & textInput & multiChoice
+
+//base input types
 export type layout = {
     pages: page[]
 }
@@ -20,18 +39,10 @@ export type input = component & {
     label: string,
 }
 
-//actual input types:
-export type numberInput = input & {
-    min: number,
-    max: number,
+//backend types
+export type robot = {
+    id: string,
+    color: "blue" | "red"
 }
 
-export type textInput = input
-
-export type multiChoice = input & {
-    options: option[]
-}
-
-export type robotView = component
-
-export type generalComponent = numberInput & textInput & multiChoice
+export type appState = "waiting" | "active"

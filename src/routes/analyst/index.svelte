@@ -19,14 +19,10 @@
 </script>
 
 <main>
-	<h1>BlueCoop</h1>
+	<h1>Analyst Homepage</h1>
 
 	<p>
-		<button on:click={() => goto("/scout")}>Scout</button>
-		<button on:click={() => goto("/pit")}>Pit Scout</button>
-		<button on:click={() => goto("/foul")}>Foul</button>
-		<button on:click={getLayout}>Refresh Layout</button>
-		<button on:click={() => goto("/analyst")}>Analyst</button>
+		<button on:click={() => goto("./analyst/assign")}>Assign</button>
 	</p>
 </main>
 
