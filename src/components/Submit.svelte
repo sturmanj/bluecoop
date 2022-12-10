@@ -1,17 +1,22 @@
 <script lang="ts">
 	import { data } from "../stores";
+	import { createEventDispatcher } from 'svelte';
 
-	function submit() {
+	const dispatch = createEventDispatcher()
+
+	async function submit() {
 		console.log(JSON.stringify(compileData()))
 
-		fetch("/api/submit", {
+		await fetch("/api/submit", {
 			method: "POST",
 			headers: {
-				Accept: "application/json",
+				"Accept": "application/json",
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({ data: compileData() }),
-		});
+		}).then(() => {
+			dispatch("reset")
+		})
 	}
 
 	function compileData(): Array<any> {

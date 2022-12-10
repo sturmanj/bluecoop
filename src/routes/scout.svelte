@@ -2,18 +2,20 @@
 	import type { layout, page } from "../types";
 	import Page from "../components/Page.svelte";
 	import Siema from "siema";
+	import type { Seima as seima } from "siema";
 	import { onMount } from "svelte";
 	import Submit from "../components/Submit.svelte";
-	import { state } from "../stores";
+	import { data, state } from "../stores";
 
 	let pages: page[];
+	let carousel: seima;
 
 	if (typeof window != "undefined") {
 		const layout: layout = JSON.parse(localStorage.getItem("layout"));
 		pages = layout.pages;
 
 		onMount(() => {
-			new Siema({
+			carousel = new Siema({
 				selector: ".carousel",
 				duration: 200,
 				easing: "ease-in-out",
@@ -24,11 +26,21 @@
 				threshold: 20,
 				loop: false,
 				rtl: false,
-				onInit: () => {},
-				onChange: () => {},
 			});
 		});
 	}
+
+	function reset() {
+		for (let key in data) {
+			// console.log(data[key])
+			// switch (typeof data[key]) {
+			// 	default: 
+			// }
+		}
+
+		carousel.goTo(0)
+	}
+
 </script>
 
 <svelte:head>
@@ -41,7 +53,7 @@
 			{#each pages as p}
 				<Page title={p.title} components={p.components} />
 			{/each}
-			<Submit />
+			<Submit on:reset={reset}/>
 		</div>
 	{/if}
 </main>

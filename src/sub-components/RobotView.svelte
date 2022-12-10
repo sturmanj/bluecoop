@@ -9,24 +9,25 @@
 		fetch("/api/assign", {
 			method: "GET",
 			headers: {
-				Accept: "application/json",
+				"Accept": "application/json",
 				"Content-Type": "application/json",
 			},
 		})
 			.then((res) => res.json())
-			.then((data) => (team = data.robot));
+			.then((teamObj) => {
+				data["robotId"] = teamObj.id;
+			});
 	});
 
-	if (team) data["robotId"] = team.id.toString();
+	$: team = data["robotId"];
 </script>
 
 <main>
 	{#if team}
 		<p style="color: {team.color}">You are scouting team {team.id}</p>
 	{:else}
-		<p>Waiting...<p>
-	{/if}
+		<p>Waiting...</p>
+		<p />{/if}
 </main>
-
 
 <style></style>
