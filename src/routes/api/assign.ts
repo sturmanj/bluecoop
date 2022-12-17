@@ -1,35 +1,21 @@
 import type { Request, Response, NextFunction } from "express";
 import type { robot } from "../../types";
 
-let robots: robot[] = [
-	{
-		"id": "1540",
-		"color": "red"
-	},
-	{
-		"id": "1425",
-		"color": "red"
-	},
-	{
-		"id": "7034",
-		"color": "red"
-	},
-	{
-		"id": "1000",
-		"color": "blue"
-	},
-	{
-		"id": "1",
-		"color": "blue"
-	},
-	{
-		"id": "254",
-		"color": "blue"
+let queue: Response[] = []
+let robots: robot[] = []
+
+setInterval(() => {
+	while (queue.length != 0) {
+		if (robots.length == 0) break
+		
+		let req = queue.shift()
+
+		if (!req.destroyed) req.json(robots.pop()) 
 	}
-];
+}, 1000)
 
 export function get(req: Request, res: Response, next: NextFunction) {
-	res.json(robots.pop());
+	queue.push(res)
 }
 
 export function post(req: Request, res: Response, next: NextFunction) {

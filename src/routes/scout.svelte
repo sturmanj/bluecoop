@@ -1,46 +1,31 @@
 <script lang="ts">
 	import type { layout, page } from "../types";
 	import Page from "../components/Page.svelte";
+	import ScoutCarousel from "../components/ScoutCarousel.svelte";
 	import Siema from "siema";
-	import type { Seima as seima } from "siema";
 	import { onMount } from "svelte";
 	import Submit from "../components/Submit.svelte";
-	import { data, state } from "../stores";
+	import { data } from "../stores";
 
-	let pages: page[];
-	let carousel: seima;
+	let controller;
 
-	if (typeof window != "undefined") {
-		const layout: layout = JSON.parse(localStorage.getItem("layout"));
-		pages = layout.pages;
+	let promise;
 
-		onMount(() => {
-			carousel = new Siema({
-				selector: ".carousel",
-				duration: 200,
-				easing: "ease-in-out",
-				perPage: 1,
-				startIndex: 0,
-				draggable: true,
-				multipleDrag: false,
-				threshold: 20,
-				loop: false,
-				rtl: false,
-			});
-		});
+	async function err() {
+		throw new Error();
 	}
 
-	function reset() {
-		for (let key in data) {
-			// console.log(data[key])
-			// switch (typeof data[key]) {
-			// 	default: 
-			// }
-		}
-
-		carousel.goTo(0)
+	async function reqTeam() {
+		console.log("click");
+		controller = new AbortController()
+		await fetch("/api/assign", { "signal": controller.signal })
+			.then((res) => res.json())
+			.then((team) => data["robot"] = team)
 	}
 
+	onMount(() => {
+		promise = err();
+	});
 </script>
 
 <svelte:head>
@@ -49,22 +34,27 @@
 
 <main>
 	{#if typeof window != "undefined"}
-		<div class="carousel">
-			{#each pages as p}
-				<Page title={p.title} components={p.components} />
-			{/each}
-			<Submit on:reset={reset}/>
-		</div>
+		{#await promise}
+			<button on:click={controller.abort()}>Log Out</button>
+		{:then}
+			<ScoutCarousel />
+		{:catch}
+			<button on:click={() => (promise = reqTeam())}>Log In</button>
+		{/await}
 	{/if}
 </main>
 
 <style>
 	main {
 		text-align: center;
-	}
-
-	.carousel {
 		width: 100%;
 		height: 100vh;
+	}
+
+	button {
+		font-size: 20px;
+		width: 15rem;
+		height: 15rem;
+		border-radius: 50%;
 	}
 </style>

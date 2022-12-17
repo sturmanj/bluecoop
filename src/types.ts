@@ -1,5 +1,3 @@
-import { type } from "os"
-
 //actual input types:
 export type numberInput = input & {
     min: number,

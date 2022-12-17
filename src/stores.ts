@@ -3,4 +3,4 @@ import type { appState } from "./types";
 
 
 export let data: object = writable({ "key": "value" })
-export let state: appState = "waiting"
+export let state: object = writable("waiting")
