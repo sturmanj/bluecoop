@@ -6,22 +6,20 @@
 	export let label: string;
 	export let options: option[];
 
-	data[label] = []
+	data[label] = [];
 </script>
 
 <main>
 	<p>{prompt}</p>
 
-    {#each options as opt}
-	<label>
-		<input type=checkbox bind:group={data[label]} value={opt.value}>
-		{opt.value}
-	</label>
-	<br>
-    {/each}
-
+	{#each options as opt}
+		<label>
+			<input type="checkbox" bind:group={data[label]} value={opt.value} />
+			{opt.value}
+		</label>
+		<br />
+	{/each}
 </main>
 
 <style>
-
 </style>

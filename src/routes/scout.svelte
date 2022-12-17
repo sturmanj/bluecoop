@@ -16,7 +16,6 @@
 	}
 
 	async function reqTeam() {
-		console.log("click");
 		controller = new AbortController()
 		await fetch("/api/assign", { "signal": controller.signal })
 			.then((res) => res.json())
@@ -33,15 +32,15 @@
 </svelte:head>
 
 <main>
-	{#if typeof window != "undefined"}
+	<!-- {#if typeof window != "undefined"} -->
 		{#await promise}
-			<button on:click={controller.abort()}>Log Out</button>
+			<button style="background-color: Tomato" on:click={controller.abort()}>Log Out</button>
 		{:then}
 			<ScoutCarousel />
 		{:catch}
-			<button on:click={() => (promise = reqTeam())}>Log In</button>
+			<button style="background-color: SpringGreen" on:click={() => (promise = reqTeam())}>Log In</button>
 		{/await}
-	{/if}
+	<!-- {/if} -->
 </main>
 
 <style>
@@ -52,7 +51,7 @@
 	}
 
 	button {
-		font-size: 20px;
+		font-size: 3em;
 		width: 15rem;
 		height: 15rem;
 		border-radius: 50%;

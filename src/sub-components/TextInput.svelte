@@ -15,6 +15,6 @@
 <style>
     textarea {
         width: 80vw;
-        height: 100px;
+        height: 100px
     }
 </style>

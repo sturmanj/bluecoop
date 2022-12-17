@@ -15,7 +15,7 @@
 
 <style>
     main {
-        widows: 100vw;
+        widows: 100%;
         height: 100vw;
     }
 </style>

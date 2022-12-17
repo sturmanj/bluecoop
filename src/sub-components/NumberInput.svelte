@@ -37,4 +37,20 @@
     .inline {
         display: inline-block;
     }
+
+    button, input {
+        font-size: 3em;
+        text-align: center;
+        width: 1em;
+        height: 1em;
+    }
+
+    input {
+        font-size: 3em;
+        text-align: center;
+        width: 1em;
+        height: 1em;
+        margin-left: 0.3em;
+        margin-right: 0.3em;
+    }
 </style>

@@ -5,7 +5,6 @@
 	const dispatch = createEventDispatcher()
 
 	async function submit() {
-		console.log(JSON.stringify(compileData()))
 
 		await fetch("/api/submit", {
 			method: "POST",

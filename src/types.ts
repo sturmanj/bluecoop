@@ -12,7 +12,9 @@ export type multiChoice = input & {
 
 export type robotView = component
 
-export type generalComponent = numberInput & textInput & multiChoice
+export type generalComponent = numberInput & textInput & multiChoice & robotView & {
+    type: string
+}
 
 //base input types
 export type layout = {

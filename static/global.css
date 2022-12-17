@@ -1,7 +1,7 @@
 h1 {
 	font-family: "Comic Sans MS", "Comic Sans";
 	font-style: bold;
-	font-size: 2em;
+	font-size: 3em;
 }
 
 html {
@@ -10,8 +10,20 @@ html {
 	height: 100vh;
 }
 
-main {
+p, input {
 	text-align: center;
-	width: 100%;
-	height: 100vh;
+	font-size: 1.5em;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	hyphens: auto;
+	white-space: normal;
+}
+
+label {
+	text-align: center;
+	font-size: 1em;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	hyphens: auto;
+	white-space: normal;
 }
